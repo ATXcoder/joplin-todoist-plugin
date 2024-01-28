@@ -1,0 +1,15 @@
+{
+	"manifest_version": 1,
+	"id": "net.thomassloan.joplin-to-todoist",
+	"app_min_version": "2.13",
+	"version": "1.0.0",
+	"name": "Joplin to Todoist",
+	"description": "Create todos in Todoist from Joplin",
+	"author": "Thomas Sloan",
+	"homepage_url": "https://gitlab.com/ATXcoder/joplin-to-todoist",
+	"repository_url": "https://gitlab.com/ATXcoder/joplin-to-todoist",
+	"keywords": [],
+	"categories": [],
+	"screenshots": [],
+	"icons": {}
+}
