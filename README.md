@@ -10,6 +10,9 @@ I use Todoist to manage all my personal and professional tasks and Joplin to sto
 - Automatically adds a link in your current Joplin note to the Todoist task.
 - Automatically add a link to the current Joplin note in the Todoist task description.
 
+> [!WARNING]
+> I have been using this plugin successfully for a bit now in my own personal workflow, but you should always backup your Joplin notes and Todoist tasks (because bugs happen).
+
 ## Setup
 
 1. Navigate to your [Todoist settings](https://app.todoist.com/app/settings/integrations/developer) and copy your **API token**.
