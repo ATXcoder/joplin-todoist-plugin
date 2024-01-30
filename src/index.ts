@@ -78,14 +78,13 @@ joplin.plugins.register({
 						dueString: taskDialogResults.formData.taskInfo.due,
 						description: taskDialogResults.formData.taskInfo.desc + "\n" + "Joplin Note: [" + note.title + "](joplin://x-callback-url/openNote?id=" + note.id + ")" ,
 						dueLang: "en",
-						priority: 4
+						priority: 1
 					};
 
 					console.info(taskdata);
 
 					api.addTask(taskdata).then((task) => {
 						console.log(task);
-						console.log(task.url);
 						updateNoteBody("- [" + task.content + "](" + task.url + ")");
 						
 					}).catch((error) => console.log(error))

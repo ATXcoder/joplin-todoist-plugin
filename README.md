@@ -1,6 +1,6 @@
 # Joplin to Todist
 
-This [Joplin](#) plugin allows you to create a [Todoist](#) task directly from Joplin.
+This [Joplin](https://joplinapp.org/) plugin allows you to create a [Todoist](https://todoist.com) task directly from Joplin.
 
 I use Todoist to manage all my personal and professional tasks and Joplin to store all my notes. I needed a way to quickly create tasks in Todoist directly from Joplin while also tieing the task to the current Joplin note. I wrote this plugin that exactly that.
 
