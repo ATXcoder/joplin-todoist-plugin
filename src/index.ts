@@ -1,6 +1,6 @@
 import joplin from 'api';
 import { MenuItemLocation, ToolbarButtonLocation, SettingItemType} from 'api/types';
-import { Project, TodoistApi } from "@doist/todoist-api-typescript"
+import { TodoistApi } from "@doist/todoist-api-typescript"
 
 
 joplin.plugins.register({
@@ -13,7 +13,6 @@ joplin.plugins.register({
 
 		// Add CSS styling to the "new todoist task" dialog
 		await joplin.views.dialogs.addScript(taskDialog,'./taskDialog.css');
-		
 
 		// eslint-disable-next-line no-console
 		console.info('Joplin to Todist plugin v 0.2 started');
@@ -61,8 +60,11 @@ joplin.plugins.register({
 
 					await dialogs.setHtml(taskDialog, `
 					<form name="taskInfo">
-					<b>Task Title</b> <input type="text" name="taskname" value="`+ selectedText +`" />
+					<b>Task Title</b> 
+					<input type="text" name="taskname" value="`+ selectedText +`" />
 					<br />
+					<b>Task Duration</b>
+					<input type="number" name="duration"/><input type="text" name="duration_unit" placeholder="minutes or days"/>
 					<b>Task Due</b> <input type="text" name="due" placeholder="(ex: 'Today', 'Friday', 'Every day')"/>
 					<br />
 					<b>Task Description</b>
@@ -73,13 +75,23 @@ joplin.plugins.register({
 					const taskDialogResults = await dialogs.open(taskDialog);
 					console.dir(taskDialogResults);
 
-					var taskdata = {
+					var taskdata: any = {
 						content: taskDialogResults.formData.taskInfo.taskname,
 						dueString: taskDialogResults.formData.taskInfo.due,
 						description: taskDialogResults.formData.taskInfo.desc + "\n" + "Joplin Note: [" + note.title + "](joplin://x-callback-url/openNote?id=" + note.id + ")" ,
 						dueLang: "en",
 						priority: 1
 					};
+
+					const durationAmount = parseInt(taskDialogResults.formData.taskInfo.duration, 10);
+					const durationUnitInput = (taskDialogResults.formData.taskInfo.duration_unit || "").trim().toLowerCase();
+					if (!isNaN(durationAmount) && durationAmount > 0 && durationUnitInput) {
+						const durationUnit = durationUnitInput.startsWith("day") ? "day" : durationUnitInput.startsWith("min") ? "minute" : null;
+						if (durationUnit) {
+							taskdata.duration = durationAmount;
+							taskdata.durationUnit = durationUnit;
+						}
+					}
 
 					console.info(taskdata);
 

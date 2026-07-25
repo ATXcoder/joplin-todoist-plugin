@@ -224,6 +224,7 @@ const extraScriptConfig = { ...baseConfig, resolve: {
 } };
 
 const createArchiveConfig = {
+	target: 'node',
 	stats: 'errors-only',
 	entry: './dist/index.js',
 	resolve: {
