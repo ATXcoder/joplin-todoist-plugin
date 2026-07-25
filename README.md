@@ -32,6 +32,9 @@ I use Todoist to manage all my personal and professional tasks and Joplin to sto
 
     ![new-task-dialog](/screenshots/new-task-dialog.png)
 
+> [!NOTE]
+> You can leave the task duration blank to not set a duration. If you do set a duration then you have to add a time in the "Task Due" field (ex. Today @ 2PM)
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a list of changes in each release.
