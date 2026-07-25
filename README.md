@@ -31,3 +31,7 @@ I use Todoist to manage all my personal and professional tasks and Joplin to sto
 1. Fill in the task information
 
     ![new-task-dialog](/screenshots/new-task-dialog.png)
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a list of changes in each release.
